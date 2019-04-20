@@ -1,1 +1,15 @@
-print('hello')
+def binary_search(array, num):
+    '''Бинарный поиск'''
+    lenght = len(array)
+    if lenght == 1 and array[0] != num:
+        return False
+    elif num == array[lenght // 2]:
+        return True
+    elif num > array[lenght // 2]:
+        return binary_search(array[lenght // 2 + 1 : lenght], num)
+    elif num < array[lenght // 2]:
+        return binary_search(array[0 : lenght // 2], num)
+
+
+if __name__ == '__main__':
+    print(binary_search(['1','2','3'], '10'))
